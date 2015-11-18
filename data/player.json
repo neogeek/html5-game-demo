@@ -1,0 +1,113 @@
+{
+    "entity": {
+        "options": {
+            "x": 450,
+            "y": 10,
+            "width": 66,
+            "height": 90,
+            "speed": 240,
+            "images": [
+                "./images/alienBeige.png",
+                "./images/alienBlue.png",
+                "./images/alienGreen.png",
+                "./images/alienPink.png",
+                "./images/alienYellow.png"
+            ]
+        },
+        "box2d_properties": {
+            "type": "dynamic",
+            "friction": 1
+        }
+    },
+    "movement": {
+        "button_1": {
+            "press": {
+                "entity": {
+                    "box2d_properties": {
+                        "setVelocity": [ null, -15 ]
+                    }
+                }
+            }
+        },
+        "d_pad_left": {
+            "hold": {
+                "entity": {
+                    "options": {
+                        "width": 71,
+                        "offsetX": 0,
+                        "offsetY": 189,
+                        "frames": [0, 1],
+                        "autoplay": "true"
+                    },
+                    "box2d_properties": {
+                        "setVelocity": [ -5, null ]
+                    }
+                }
+            },
+            "press": {
+                "entity": {
+                    "options": {
+                        "width": 66,
+                        "offsetX": 134,
+                        "offsetY": 0,
+                        "frames": []
+                    },
+                    "box2d_properties": {
+                    }
+                }
+            },
+            "release": {
+                "entity": {
+                    "options": {
+                        "width": 66,
+                        "offsetX": 134,
+                        "offsetY": 0,
+                        "frames": []
+                    },
+                    "box2d_properties": {
+                    }
+                }
+            }
+        },
+        "d_pad_right": {
+            "hold": {
+                "entity": {
+                    "options": {
+                        "width": 71,
+                        "offsetX": 0,
+                        "offsetY": 93,
+                        "frames": [0, 1],
+                        "autoplay": true
+                    },
+                    "box2d_properties": {
+                        "setVelocity": [ 5, null ]
+                    }
+                }
+            },
+            "press": {
+                "entity": {
+                    "options": {
+                        "width": 66,
+                        "offsetX": 66,
+                        "offsetY": 0,
+                        "frames": []
+                    },
+                    "box2d_properties": {
+                    }
+                }
+            },
+            "release": {
+                "entity": {
+                    "options": {
+                        "width": 66,
+                        "offsetX": 66,
+                        "offsetY": 0,
+                        "frames": []
+                    },
+                    "box2d_properties": {
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,422 @@
+{
+    "camera": {
+        "width": 1000,
+        "minX": 0,
+        "maxX": 4000
+    },
+    "background": [
+        {
+            "options": {
+                "x": 0,
+                "y": -220,
+                "width": 4000,
+                "height": 1200,
+                "scale": 1,
+                "pattern": "./images/blue_grass.png"
+            }
+        }
+    ],
+    "platforms": [
+        {
+            "label": "left wall bounds",
+            "options": {
+                "x": -10,
+                "y": 0,
+                "width": 10,
+                "height": 600,
+                "fillStyle": "red"
+            },
+            "box2d_properties": {
+                "friction": 0
+            }
+        },
+        {
+            "label": "ceiling bounds",
+            "options": {
+                "x": 0,
+                "y": -10,
+                "width": 8000,
+                "height": 10,
+                "fillStyle": "red"
+            },
+            "box2d_properties": {
+                "friction": 0
+            }
+        },
+        {
+            "label": "right wall bounds",
+            "options": {
+                "x": 4000,
+                "y": 0,
+                "width": 10,
+                "height": 600,
+                "fillStyle": "red"
+            },
+            "box2d_properties": {
+                "friction": 0
+            }
+        },
+        {
+            "label": "ground",
+            "options": {
+                "x": 0,
+                "y": 536,
+                "width": 8000,
+                "height": 128,
+                "scale": 0.5,
+                "pattern": "./images/grassMid.png"
+            },
+            "box2d_properties": {
+            }
+        },
+        {
+            "label": "platform 1",
+            "options": {
+                "x": 128,
+                "y": 128,
+                "width": 512,
+                "height": 128,
+                "scale": 0.5,
+                "pattern": "./images/boxCrate_double.png"
+            },
+            "box2d_properties": {
+            }
+        },
+        {
+            "label": "platform 2",
+            "options": {
+                "x": 640,
+                "y": 350,
+                "width": 512,
+                "height": 128,
+                "scale": 0.5,
+                "pattern": "./images/boxCrate_double.png"
+            },
+            "box2d_properties": {
+            }
+        },
+        {
+            "label": "platform 3",
+            "options": {
+                "x": 1152,
+                "y": 128,
+                "width": 512,
+                "height": 128,
+                "scale": 0.5,
+                "pattern": "./images/boxCrate_double.png"
+            },
+            "box2d_properties": {
+            }
+        },
+        {
+            "label": "platform 4",
+            "options": {
+                "x": 1664,
+                "y": 350,
+                "width": 512,
+                "height": 128,
+                "scale": 0.5,
+                "pattern": "./images/boxCrate_double.png"
+            },
+            "box2d_properties": {
+            }
+        },
+        {
+            "label": "platform 5",
+            "options": {
+                "x": 2176,
+                "y": 128,
+                "width": 512,
+                "height": 128,
+                "scale": 0.5,
+                "pattern": "./images/boxCrate_double.png"
+            },
+            "box2d_properties": {
+            }
+        },
+        {
+            "label": "platform 6",
+            "options": {
+                "x": 2688,
+                "y": 350,
+                "width": 512,
+                "height": 128,
+                "scale": 0.5,
+                "pattern": "./images/boxCrate_double.png"
+            },
+            "box2d_properties": {
+            }
+        },
+        {
+            "label": "platform 7",
+            "options": {
+                "x": 3200,
+                "y": 128,
+                "width": 512,
+                "height": 128,
+                "scale": 0.5,
+                "pattern": "./images/boxCrate_double.png"
+            },
+            "box2d_properties": {
+            }
+        },
+        {
+            "label": "platform 8",
+            "options": {
+                "x": 3712,
+                "y": 350,
+                "width": 512,
+                "height": 128,
+                "scale": 0.5,
+                "pattern": "./images/boxCrate_double.png"
+            },
+            "box2d_properties": {
+            }
+        }
+    ],
+    "items": [
+        {
+            "label": "coin",
+            "options": {
+                "x": 203,
+                "y": 60,
+                "width": 84,
+                "height": 84,
+                "scale": 0.5,
+                "frames": [0, 1, 2, 3, 4, 5],
+                "image": "./images/coin.png",
+                "autoplay": true
+            },
+            "box2d_properties": {
+            }
+        },
+        {
+            "label": "coin",
+            "options": {
+                "x": 267,
+                "y": 60,
+                "width": 84,
+                "height": 84,
+                "scale": 0.5,
+                "frames": [0, 1, 2, 3, 4, 5],
+                "image": "./images/coin.png",
+                "autoplay": true
+            },
+            "box2d_properties": {
+            }
+        },
+        {
+            "label": "coin",
+            "options": {
+                "x": 715,
+                "y": 280,
+                "width": 84,
+                "height": 84,
+                "scale": 0.5,
+                "frames": [0, 1, 2, 3, 4, 5],
+                "image": "./images/coin.png",
+                "autoplay": true
+            },
+            "box2d_properties": {
+            }
+        },
+        {
+            "label": "coin",
+            "options": {
+                "x": 779,
+                "y": 280,
+                "width": 84,
+                "height": 84,
+                "scale": 0.5,
+                "frames": [0, 1, 2, 3, 4, 5],
+                "image": "./images/coin.png",
+                "autoplay": true
+            },
+            "box2d_properties": {
+            }
+        },
+        {
+            "label": "coin",
+            "options": {
+                "x": 1227,
+                "y": 60,
+                "width": 84,
+                "height": 84,
+                "scale": 0.5,
+                "frames": [0, 1, 2, 3, 4, 5],
+                "image": "./images/coin.png",
+                "autoplay": true
+            },
+            "box2d_properties": {
+            }
+        },
+        {
+            "label": "coin",
+            "options": {
+                "x": 1291,
+                "y": 60,
+                "width": 84,
+                "height": 84,
+                "scale": 0.5,
+                "frames": [0, 1, 2, 3, 4, 5],
+                "image": "./images/coin.png",
+                "autoplay": true
+            },
+            "box2d_properties": {
+            }
+        },
+        {
+            "label": "coin",
+            "options": {
+                "x": 1739,
+                "y": 280,
+                "width": 84,
+                "height": 84,
+                "scale": 0.5,
+                "frames": [0, 1, 2, 3, 4, 5],
+                "image": "./images/coin.png",
+                "autoplay": true
+            },
+            "box2d_properties": {
+            }
+        },
+        {
+            "label": "coin",
+            "options": {
+                "x": 1803,
+                "y": 280,
+                "width": 84,
+                "height": 84,
+                "scale": 0.5,
+                "frames": [0, 1, 2, 3, 4, 5],
+                "image": "./images/coin.png",
+                "autoplay": true
+            },
+            "box2d_properties": {
+            }
+        },
+        {
+            "label": "coin",
+            "options": {
+                "x": 2251,
+                "y": 60,
+                "width": 84,
+                "height": 84,
+                "scale": 0.5,
+                "frames": [0, 1, 2, 3, 4, 5],
+                "image": "./images/coin.png",
+                "autoplay": true
+            },
+            "box2d_properties": {
+            }
+        },
+        {
+            "label": "coin",
+            "options": {
+                "x": 2315,
+                "y": 60,
+                "width": 84,
+                "height": 84,
+                "scale": 0.5,
+                "frames": [0, 1, 2, 3, 4, 5],
+                "image": "./images/coin.png",
+                "autoplay": true
+            },
+            "box2d_properties": {
+            }
+        },
+        {
+            "label": "coin",
+            "options": {
+                "x": 2763,
+                "y": 280,
+                "width": 84,
+                "height": 84,
+                "scale": 0.5,
+                "frames": [0, 1, 2, 3, 4, 5],
+                "image": "./images/coin.png",
+                "autoplay": true
+            },
+            "box2d_properties": {
+            }
+        },
+        {
+            "label": "coin",
+            "options": {
+                "x": 2829,
+                "y": 280,
+                "width": 84,
+                "height": 84,
+                "scale": 0.5,
+                "frames": [0, 1, 2, 3, 4, 5],
+                "image": "./images/coin.png",
+                "autoplay": true
+            },
+            "box2d_properties": {
+            }
+        },
+        {
+            "label": "coin",
+            "options": {
+                "x": 3275,
+                "y": 60,
+                "width": 84,
+                "height": 84,
+                "scale": 0.5,
+                "frames": [0, 1, 2, 3, 4, 5],
+                "image": "./images/coin.png",
+                "autoplay": true
+            },
+            "box2d_properties": {
+            }
+        },
+        {
+            "label": "coin",
+            "options": {
+                "x": 3339,
+                "y": 60,
+                "width": 84,
+                "height": 84,
+                "scale": 0.5,
+                "frames": [0, 1, 2, 3, 4, 5],
+                "image": "./images/coin.png",
+                "autoplay": true
+            },
+            "box2d_properties": {
+            }
+        },
+        {
+            "label": "coin",
+            "options": {
+                "x": 3787,
+                "y": 280,
+                "width": 84,
+                "height": 84,
+                "scale": 0.5,
+                "frames": [0, 1, 2, 3, 4, 5],
+                "image": "./images/coin.png",
+                "autoplay": true
+            },
+            "box2d_properties": {
+            }
+        },
+        {
+            "label": "coin",
+            "options": {
+                "x": 3853,
+                "y": 280,
+                "width": 84,
+                "height": 84,
+                "scale": 0.5,
+                "frames": [0, 1, 2, 3, 4, 5],
+                "image": "./images/coin.png",
+                "autoplay": true
+            },
+            "box2d_properties": {
+            }
+        }
+    ],
+    "foreground": [
+
+    ]
+}
