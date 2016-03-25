@@ -188,6 +188,7 @@
                 "autoplay": true
             },
             "box2d_properties": {
+                "sensor": true
             }
         },
         {
@@ -203,6 +204,7 @@
                 "autoplay": true
             },
             "box2d_properties": {
+                "sensor": true
             }
         },
         {
@@ -218,6 +220,7 @@
                 "autoplay": true
             },
             "box2d_properties": {
+                "sensor": true
             }
         },
         {
@@ -233,6 +236,7 @@
                 "autoplay": true
             },
             "box2d_properties": {
+                "sensor": true
             }
         },
         {
@@ -248,6 +252,7 @@
                 "autoplay": true
             },
             "box2d_properties": {
+                "sensor": true
             }
         },
         {
@@ -263,6 +268,7 @@
                 "autoplay": true
             },
             "box2d_properties": {
+                "sensor": true
             }
         },
         {
@@ -278,6 +284,7 @@
                 "autoplay": true
             },
             "box2d_properties": {
+                "sensor": true
             }
         },
         {
@@ -293,6 +300,7 @@
                 "autoplay": true
             },
             "box2d_properties": {
+                "sensor": true
             }
         },
         {
@@ -308,6 +316,7 @@
                 "autoplay": true
             },
             "box2d_properties": {
+                "sensor": true
             }
         },
         {
@@ -323,6 +332,7 @@
                 "autoplay": true
             },
             "box2d_properties": {
+                "sensor": true
             }
         },
         {
@@ -338,6 +348,7 @@
                 "autoplay": true
             },
             "box2d_properties": {
+                "sensor": true
             }
         },
         {
@@ -353,6 +364,7 @@
                 "autoplay": true
             },
             "box2d_properties": {
+                "sensor": true
             }
         },
         {
@@ -368,6 +380,7 @@
                 "autoplay": true
             },
             "box2d_properties": {
+                "sensor": true
             }
         },
         {
@@ -383,6 +396,7 @@
                 "autoplay": true
             },
             "box2d_properties": {
+                "sensor": true
             }
         },
         {
@@ -398,6 +412,7 @@
                 "autoplay": true
             },
             "box2d_properties": {
+                "sensor": true
             }
         },
         {
@@ -413,6 +428,7 @@
                 "autoplay": true
             },
             "box2d_properties": {
+                "sensor": true
             }
         }
     ],
