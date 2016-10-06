@@ -9,3 +9,4 @@ deploy:
 
 clean:
 	rm js/build.min.js || exit 0;
+	rm js/build.min.js.map || exit 0;
