@@ -1,8 +1,11 @@
+BIN=node_modules/.bin
+
 build:
-	rm js/build.min.js || exit 0;
-	./node_modules/.bin/r.js -o build.config.js
-	mv js-build/config.js js/build.min.js
-	rm -rf js-build/
+	make clean
+	$(BIN)/spire-of-babel js/app.js --bundle --minify --sourcemap --output js/build.min.js
 
 deploy:
 	firebase deploy
+
+clean:
+	rm js/build.min.js || exit 0;
