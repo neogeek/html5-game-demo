@@ -1,5 +1,7 @@
 {
   "devDependencies": {
+    "@neogeek/eslint-config-standards": "1.8.0",
+    "eslint": "3.10.2",
     "facade.js": "0.3.0-beta.7",
     "facadejs-Box2D-plugin": "neogeek/facadejs-Box2D-plugin",
     "firebase": "3.6.1",

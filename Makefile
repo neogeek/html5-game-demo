@@ -4,6 +4,9 @@ build:
 	make clean
 	$(BIN)/spire-of-babel js/app.js --bundle --minify --sourcemap --output js/build.min.js
 
+lint:
+	$(BIN)/eslint js/
+
 deploy:
 	firebase deploy
 
