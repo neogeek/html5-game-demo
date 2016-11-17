@@ -1,121 +1,122 @@
 'use strict';
 
-var Facade = require('facade.js'),
-    Gamepad = require('gamepad.js');
+const Gamepad = require('gamepad.js');
 
-var gamepad = new Gamepad();
+const gamepad = new Gamepad();
 
 require('facadejs-Box2D-plugin');
 
-var camera = require('./camera'),
-    datastore = require('./datastore');
+const camera = require('./camera');
+const datastore = require('./datastore');
 
-var generateEntityFromObject = require('./utils/generateEntityFromObject');
+const generateEntityFromObject = require('./utils/generateEntityFromObject');
 
-module.exports = function (level) {
+module.exports = level => {
 
-    fetch('./data/player.json').then(function (response) {
-        return response.json();
-    }).then(function (data) {
+    fetch('./data/player.json').then(response => response.json())
+        .then(data => {
 
-        var entity;
+            let entity = null;
 
-        data.entity.options.image = data.entity.options.images[Math.floor(Math.random() * data.entity.options.images.length)];
+            data.entity.options.image = data.entity.options.images[Math.floor(Math.random() * data.entity.options.images.length)];
 
-        entity = generateEntityFromObject(data.entity, level.world);
+            entity = generateEntityFromObject(data.entity, level.world);
 
-        var currentPlayer = { lastUpdatedAt: Date.now() },
-            currentPlayerKey = localStorage.getItem('currentPlayerKey');
+            const currentPlayer = {
+                'lastUpdatedAt': Date.now()
+            };
 
-        function handlePlayerMovement () {
+            let currentPlayerKey = localStorage.getItem('currentPlayerKey');
 
-            currentPlayer.src = entity.image.src;
-            currentPlayer.x = entity.getMetric('x');
-            currentPlayer.y = entity.getMetric('y');
-            currentPlayer.width = entity.getOption('width');
-            currentPlayer.height = entity.getOption('height');
-            currentPlayer.offsetX = entity.getOption('offsetX');
-            currentPlayer.offsetY = entity.getOption('offsetY');
-            currentPlayer.currentFrame = entity.currentFrame;
+            const handlePlayerMovement = () => {
 
-            currentPlayer.lastUpdatedAt = Date.now();
+                currentPlayer.src = entity.image.src;
+                currentPlayer.x = entity.getMetric('x');
+                currentPlayer.y = entity.getMetric('y');
+                currentPlayer.width = entity.getOption('width');
+                currentPlayer.height = entity.getOption('height');
+                currentPlayer.offsetX = entity.getOption('offsetX');
+                currentPlayer.offsetY = entity.getOption('offsetY');
+                currentPlayer.currentFrame = entity.currentFrame;
 
-            if (!currentPlayerKey) {
+                currentPlayer.lastUpdatedAt = Date.now();
 
-                currentPlayerKey = datastore.push(currentPlayer).key();
+                if (currentPlayerKey) {
 
-                localStorage.setItem('currentPlayerKey', currentPlayerKey);
+                    datastore.child(currentPlayerKey).set(currentPlayer);
 
-            } else {
+                } else {
 
-                datastore.child(currentPlayerKey).set(currentPlayer);
+                    currentPlayerKey = datastore.push(currentPlayer).key();
 
-            }
+                    localStorage.setItem('currentPlayerKey', currentPlayerKey);
 
-            camera.centerOnEntity(entity);
+                }
+
+                camera.centerOnEntity(entity);
+
+                requestAnimationFrame(handlePlayerMovement);
+
+            };
 
             requestAnimationFrame(handlePlayerMovement);
 
-        }
+            entity.Box2D('setCallback', 'BeginContact', (a, b) => {
 
-        requestAnimationFrame(handlePlayerMovement);
+                if (level.entities.items.indexOf(b) !== -1) {
 
-        entity.Box2D('setCallback', 'BeginContact', function (a, b) {
+                    const removed = level.entities.items.splice(level.entities.items.indexOf(b), 1);
 
-            if (level.entities.items.indexOf(b) !== -1) {
+                    removed[0].Box2D('destroyObject');
 
-                var removed = level.entities.items.splice(level.entities.items.indexOf(b), 1);
-
-                removed[0].Box2D('destroyObject');
-
-            }
-
-        });
-
-        Object.keys(data.movement).forEach(function (button) {
-
-            Object.keys(data.movement[button]).forEach(function (type) {
-
-                gamepad.on(type, button, function (e) {
-
-                    var properties = data.movement[e.button][e.type].entity;
-
-                    if (properties.options) {
-
-                        entity.setOptions(properties.options);
-
-                        if (properties.options.autoplay) {
-
-                            entity.play();
-
-                        } else {
-
-                            entity.stop();
-
-                        }
-
-                    }
-
-                    if (properties.box2d_properties) {
-
-                        if (properties.box2d_properties.setVelocity) {
-
-                            entity.Box2D.apply(entity, ['setVelocity'].concat(properties.box2d_properties.setVelocity));
-
-                        }
-
-                    }
-
-                });
+                }
 
             });
 
-            level.entities.player1 = entity;
+            Object.keys(data.movement).forEach(button => {
 
-            camera.centerOnEntity(entity);
+                Object.keys(data.movement[button]).forEach(type => {
+
+                    gamepad.on(type, button, e => {
+
+                        const properties = data.movement[e.button][e.type].entity;
+
+                        if (properties.options) {
+
+                            entity.setOptions(properties.options);
+
+                            if (properties.options.autoplay) {
+
+                                entity.play();
+
+                            } else {
+
+                                entity.stop();
+
+                            }
+
+                        }
+
+                        if (properties.box2d_properties) {
+
+                            if (properties.box2d_properties.setVelocity) {
+
+                                entity.Box2D(...[entity, ['setVelocity'].concat(properties.box2d_properties.setVelocity)]);
+
+                            }
+
+                        }
+
+                    });
+
+                });
+
+                level.entities.player1 = entity;
+
+                camera.centerOnEntity(entity);
+
+            });
 
         });
-
-    });
 
 };

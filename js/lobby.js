@@ -1,35 +1,37 @@
 'use strict';
 
-var Facade = require('facade.js');
+const Facade = require('facade.js');
 
-var datastore = require('./datastore');
+const datastore = require('./datastore');
 
-module.exports = function (level) {
+const MILLISECOND = 10000;
 
-    var activePlayerEntities = [];
+module.exports = level => {
 
-    datastore.on('value', function (players) {
+    let activePlayerEntities = [];
 
-        var currentPlayerKey = localStorage.getItem('currentPlayerKey');
+    datastore.on('value', players => {
+
+        const currentPlayerKey = localStorage.getItem('currentPlayerKey');
 
         activePlayerEntities = [];
 
-        players.forEach(function (player) {
+        players.forEach(player => {
 
-            if (player.child('lastUpdatedAt').val() < Date.now() - 10000) {
+            if (player.child('lastUpdatedAt').val() < Date.now() - MILLISECOND) {
 
-                datastore.child(player.key()).remove();
+                datastore.child(player.key).remove();
 
-            } else if (player.key() !== currentPlayerKey) {
+            } else if (player.key !== currentPlayerKey) {
 
                 activePlayerEntities.push(new Facade.Image(player.child('src').val(), {
-                    x: player.child('x').val(),
-                    y: player.child('y').val(),
-                    offsetX: player.child('offsetX').val(),
-                    offsetY: player.child('offsetY').val(),
-                    width: player.child('width').val(),
-                    height: player.child('height').val(),
-                    frames: [player.child('currentFrame').val()]
+                    'frames': [player.child('currentFrame').val()],
+                    'height': player.child('height').val(),
+                    'offsetX': player.child('offsetX').val(),
+                    'offsetY': player.child('offsetY').val(),
+                    'width': player.child('width').val(),
+                    'x': player.child('x').val(),
+                    'y': player.child('y').val()
                 }));
 
             }

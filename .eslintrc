@@ -1,5 +1,12 @@
 {
   "extends": [
     "@neogeek/eslint-config-standards"
-  ]
+  ],
+  "rules": {
+    "id-length": 0,
+    "new-cap": 0,
+    "no-extra-parens": 0,
+    "no-underscore-dangle": 0,
+    "max-statements": 0
+  }
 }

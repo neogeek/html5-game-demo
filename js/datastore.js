@@ -1,7 +1,11 @@
 'use strict';
 
-var Firebase = require('firebase');
+const Firebase = require('firebase');
 
-var myFirebaseRef = new Firebase('https://html5-game-demo.firebaseio.com/players/');
+const myFirebaseRef = Firebase.initializeApp({
+    'databaseURL': 'https://html5-game-demo.firebaseio.com/'
+})
+.database('players')
+.ref();
 
 module.exports = myFirebaseRef;

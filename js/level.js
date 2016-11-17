@@ -1,44 +1,55 @@
 'use strict';
 
-var Facade = require('facade.js');
+const Facade = require('facade.js');
 
 require('facadejs-Box2D-plugin');
 
-var camera = require('./camera');
+const camera = require('./camera');
 
-var generateEntityFromObject = require('./utils/generateEntityFromObject');
+const generateEntityFromObject = require('./utils/generateEntityFromObject');
 
-module.exports =  function (canvas, file) {
+const GRAVITY = 20;
 
-    var stage = new Facade(canvas);
+module.exports = (canvas, file) => {
+
+    const stage = new Facade(canvas);
 
     // stage.resizeForHDPI();
 
-    var world = new Facade.Entity().Box2D('createWorld', { canvas: stage.canvas, gravity: [ 0, 20 ] });
+    const world = new Facade.Entity().Box2D('createWorld', {
+        'canvas': stage.canvas,
+        'gravity': [0, GRAVITY]
+    });
 
-    var entities = {
-        background: [],
-        platforms: [],
-        items: [],
-        players: [],
-        player1: null,
-        foreground: [],
-        ui: []
+    const entities = {
+        'background': [],
+        'foreground': [],
+        'items': [],
+        'platforms': [],
+        'player1': null,
+        'players': [],
+        'ui': []
     };
 
-    fetch(file).then(function (response) {
-        return response.json();
-    }).then(function (data) {
+    fetch(file).then(response => response.json())
+        .then(data => {
 
-        Object.keys(data).forEach(function (type) {
+            Object.keys(data).forEach(type => {
 
-            var items = data[type];
+                if (data[type].length) {
 
-            if (items.length) {
+                    entities[type] = data[type].map(item =>
+                        generateEntityFromObject(item, world));
 
-                entities[type] = items.map(function (item) {
+                }
 
-                    return generateEntityFromObject(item, world);
+            });
+
+            if (data.camera) {
+
+                Object.keys(data.camera).forEach(key => {
+
+                    camera.settings[key] = data.camera[key];
 
                 });
 
@@ -46,51 +57,48 @@ module.exports =  function (canvas, file) {
 
         });
 
-        if (data.camera) {
+    stage.draw(() => {
 
-            Object.keys(data.camera).forEach(function (key) {
+        stage.clear();
 
-                camera.settings[key] = data.camera[key];
+        world.Box2D('step');
 
+        stage.addToStage(entities.background);
+
+        stage.addToStage([
+            entities.platforms,
+            entities.items,
+            entities.players
+        ], {
+            'x': `+=${-camera.position.x}`,
+            'y': `+=${-camera.position.y}`
+        });
+
+        if (entities.player1) {
+
+            stage.addToStage(entities.player1, {
+                'x': `+=${-camera.position.x}`,
+                'y': `+=${-camera.position.y}`
             });
 
         }
 
-    });
-
-    stage.draw(function () {
-
-        this.clear();
-
-        world.Box2D('step');
-
-        this.addToStage(entities.background);
-
-        this.addToStage([
-            entities.platforms,
-            entities.items,
-            entities.players
-        ], { x: '+=' + -camera.position.x, y: '+=' + -camera.position.y });
-
-        if (entities.player1) {
-
-            this.addToStage(entities.player1, { x: '+=' + -camera.position.x, y: '+=' + -camera.position.y });
-
-        }
-
-        this.addToStage([
+        stage.addToStage([
             entities.foreground
-        ], { x: '+=' + -camera.position.x, y: '+=' + -camera.position.y });
+        ], {
+            'x': `+=${-camera.position.x}`,
+            'y': `+=${-camera.position.y}`
+        });
 
-        this.addToStage(entities.ui);
+        stage.addToStage(entities.ui);
 
         // world.Box2D('drawDebug');
 
     });
 
     return {
-        world: world,
-        entities: entities
+        entities,
+        world
     };
 
 };

@@ -1,15 +1,15 @@
 'use strict';
 
-var Facade = require('facade.js');
+const Facade = require('facade.js');
 
 require('facadejs-Box2D-plugin');
 
-var context = document.createElement('canvas').getContext('2d');
+const context = document.createElement('canvas').getContext('2d');
 
-function generateEntityFromObject (data, world) {
+const generateEntityFromObject = (data, world) => {
 
-    var entity,
-        img;
+    let entity = null;
+    let img = null;
 
     if (data.options.pattern) {
 
@@ -19,7 +19,7 @@ function generateEntityFromObject (data, world) {
 
         img.setAttribute('src', data.options.pattern);
 
-        img.addEventListener('load', function () {
+        img.addEventListener('load', () => {
 
             entity._options.fillStyle = context.createPattern(img, 'repeat');
 
@@ -49,6 +49,6 @@ function generateEntityFromObject (data, world) {
 
     return entity;
 
-}
+};
 
 module.exports = generateEntityFromObject;
