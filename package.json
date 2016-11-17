@@ -1,10 +1,10 @@
 {
-  "private": true,
   "devDependencies": {
     "facade.js": "0.3.0-beta.7",
     "facadejs-Box2D-plugin": "neogeek/facadejs-Box2D-plugin",
-    "firebase": "2.4.2",
+    "firebase": "3.6.1",
     "gamepad.js": "neogeek/gamepad.js",
-    "spire-of-babel": "1.1.13"
-  }
+    "spire-of-babel": "1.1.15"
+  },
+  "private": true
 }
