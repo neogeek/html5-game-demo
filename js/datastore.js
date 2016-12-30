@@ -1,10 +1,11 @@
+const firebase = require('firebase');
 
-const Firebase = require('firebase');
+firebase.initializeApp({
+    'apiKey': 'AIzaSyBTkqUxvhXJ6UcfmmHAlTS9_Qxp8Y03nJo',
+    'authDomain': 'html5-game-demo.firebaseapp.com',
+    'databaseURL': 'https://html5-game-demo.firebaseio.com',
+    'messagingSenderId': '684890656119',
+    'storageBucket': 'html5-game-demo.appspot.com'
+});
 
-const myFirebaseRef = Firebase.initializeApp({
-    'databaseURL': 'https://html5-game-demo.firebaseio.com/'
-})
-.database('players')
-.ref();
-
-module.exports = myFirebaseRef;
+module.exports = firebase.database().ref('players');

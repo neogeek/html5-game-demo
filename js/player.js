@@ -45,7 +45,7 @@ module.exports = level => {
 
                 } else {
 
-                    currentPlayerKey = datastore.push(currentPlayer).key();
+                    currentPlayerKey = datastore.push(currentPlayer).key;
 
                     localStorage.setItem('currentPlayerKey', currentPlayerKey);
 
@@ -99,7 +99,7 @@ module.exports = level => {
 
                             if (properties.box2d_properties.setVelocity) {
 
-                                entity.Box2D(...[entity, ['setVelocity'].concat(properties.box2d_properties.setVelocity)]);
+                                entity.Box2D(...['setVelocity'].concat(properties.box2d_properties.setVelocity));
 
                             }
 
