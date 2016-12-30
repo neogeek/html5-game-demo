@@ -1,12 +1,12 @@
 {
   "devDependencies": {
-    "@neogeek/eslint-config-standards": "1.8.0",
-    "eslint": "3.10.2",
+    "@neogeek/eslint-config-standards": "1.10.0",
+    "eslint": "3.12.2",
     "facade.js": "0.3.0-beta.7",
     "facadejs-Box2D-plugin": "neogeek/facadejs-Box2D-plugin",
-    "firebase": "3.6.1",
+    "firebase": "3.6.4",
     "gamepad.js": "neogeek/gamepad.js",
-    "spire-of-babel": "1.1.15"
+    "spire-of-babel": "1.1.18"
   },
   "private": true
 }
