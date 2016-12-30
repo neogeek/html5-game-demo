@@ -1,5 +1,3 @@
-'use strict';
-
 const Gamepad = require('gamepad.js');
 
 const gamepad = new Gamepad();

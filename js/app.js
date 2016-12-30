@@ -1,7 +1,5 @@
 /* eslint no-unused-vars: 0 */
 
-'use strict';
-
 const Level = require('./level');
 const Lobby = require('./lobby');
 const Player = require('./player');

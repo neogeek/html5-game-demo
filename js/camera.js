@@ -1,7 +1,5 @@
 /* eslint no-magic-numbers: 0 */
 
-'use strict';
-
 const position = {
     'x': 0,
     'y': 0

@@ -1,4 +1,3 @@
-'use strict';
 
 const Firebase = require('firebase');
 

@@ -1,5 +1,3 @@
-'use strict';
-
 const Facade = require('facade.js');
 
 const datastore = require('./datastore');

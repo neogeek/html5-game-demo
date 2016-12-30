@@ -1,5 +1,3 @@
-'use strict';
-
 const Facade = require('facade.js');
 
 require('facadejs-Box2D-plugin');
