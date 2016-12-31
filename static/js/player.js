@@ -4,9 +4,8 @@ const gamepad = new Gamepad();
 
 require('facadejs-Box2D-plugin');
 
-const camera = require('./camera');
-const datastore = require('./datastore');
-
+const camera = require('./utils/camera');
+const datastore = require('./utils/datastore');
 const generateEntityFromObject = require('./utils/generateEntityFromObject');
 
 module.exports = level => {

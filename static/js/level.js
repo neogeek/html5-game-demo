@@ -2,8 +2,7 @@ const Facade = require('facade.js');
 
 require('facadejs-Box2D-plugin');
 
-const camera = require('./camera');
-
+const camera = require('./utils/camera');
 const generateEntityFromObject = require('./utils/generateEntityFromObject');
 
 const GRAVITY = 20;

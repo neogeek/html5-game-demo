@@ -1,6 +1,6 @@
 const Facade = require('facade.js');
 
-const datastore = require('./datastore');
+const datastore = require('./utils/datastore');
 
 const MILLISECOND = 10000;
 
