@@ -1,4 +1,4 @@
 node_modules/
 
-js/build.min.js
-js/build.min.js.map
+static/js/build.min.js
+static/js/build.min.js.map
