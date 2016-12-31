@@ -15,17 +15,18 @@ const settings = {
 };
 
 const SCROLL_HORIZONTAL = 0.6;
-const SCROLL_VERTICAL = 0.6;
 
 const centerOnEntity = entity => {
 
-    if (entity.getMetric('x') > position.x + (settings.width * SCROLL_HORIZONTAL)) {
+    const centerOfEntity = entity.getMetric('x') - (entity.getMetric('width') / 2);
 
-        position.x += Math.abs(entity.getMetric('x') - (position.x + (settings.width * SCROLL_HORIZONTAL)));
+    if (centerOfEntity > position.x + (settings.width * SCROLL_HORIZONTAL)) {
 
-    } else if (entity.getMetric('x') - (entity.getMetric('width') / 2) < position.x + (settings.width * SCROLL_VERTICAL)) {
+        position.x += Math.abs(centerOfEntity - (position.x + (settings.width * SCROLL_HORIZONTAL)));
 
-        position.x -= Math.abs(entity.getMetric('x') - (entity.getMetric('width') / 2) - (position.x + (settings.width * SCROLL_VERTICAL)));
+    } else if (centerOfEntity - entity.getMetric('width') < position.x + (settings.width * SCROLL_HORIZONTAL)) {
+
+        position.x -= Math.abs(centerOfEntity - (position.x + (settings.width * SCROLL_HORIZONTAL)));
 
     }
 
